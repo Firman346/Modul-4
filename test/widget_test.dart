@@ -1,33 +1,45 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../lib/modul2/academic_dashboard_screen.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp() as Widget);
+  testWidgets(
+    'Academic Dashboard tampil dengan benar',
+    (WidgetTester tester) async {
+      // Atur ukuran layar agar cukup untuk layout desktop
+      tester.view.physicalSize = const Size(1200, 800);
+      tester.view.devicePixelRatio = 1.0;
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      await tester.pumpWidget(
+        const AcademicDashboardScreen(),
+      );
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      expect(
+        find.text('Dashboard Akademik TRPL'),
+        findsOneWidget,
+      );
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
-}
+      expect(
+        find.text('Mata Kuliah Semester 3 (4 Terdaftar)'),
+        findsOneWidget,
+      );
 
-class MyApp {
-  const new();
+      expect(
+        find.text('Pemrograman Perangkat Bergerak'),
+        findsOneWidget,
+      );
+
+      expect(
+        find.text('Interoperabilitas'),
+        findsOneWidget,
+      );
+
+      // Kembalikan ukuran layar setelah test
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+    },
+  );
 }

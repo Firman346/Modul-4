@@ -15,7 +15,7 @@ Setelah saya berhasil menginstall Flutter, kemudian saya mencoba membuat dan men
 ## 2. Bukti Tangkapan Layar (Running App)
 | Mode Portrait | Mode Landscape |
 |---|---|
-| ![Portrait](images/potrait.png) | ![Landscape](images/landscape.png) |
+| ![Portrait](images/1.png) | ![Landscape](images/2.png) |
 
 ## 3. Kendala yang Dihadapi & Solusinya
 - **Kendala**: Saat saya melakukan pengecekan instalasi Flutter menggunakan perintah flutter --version dan flutter doctor melalui CMD, ternyata Flutter belum dapat dikenali dengan baik. Setelah diperiksa, kendala tersebut disebabkan oleh konfigurasi Environment Variable (PATH) yang belum sesuai.

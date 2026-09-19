@@ -30,6 +30,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC),
+
       appBar: AppBar(
         title: const Text(
           'Profil Mahasiswa',
@@ -40,13 +41,14 @@ class ProfileScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
       ),
+
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              
+
               // Avatar
               Container(
                 width: 96,
@@ -65,6 +67,7 @@ class ProfileScreen extends StatelessWidget {
                   color: Color(0xFF0284C7),
                 ),
               ),
+
               const SizedBox(height: 16),
 
               // Nama
@@ -76,6 +79,7 @@ class ProfileScreen extends StatelessWidget {
                   color: Color(0xFF0F172A),
                 ),
               ),
+
               const SizedBox(height: 6),
 
               // NIM
@@ -97,6 +101,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
               const SizedBox(height: 24),
 
               // Kartu Info Akademik
@@ -104,37 +109,117 @@ class ProfileScreen extends StatelessWidget {
                 elevation: 2,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
-                  side: const BorderSide(color: Color(0xFFE2E8F0)),
+                  side: const BorderSide(
+                    color: Color(0xFFE2E8F0),
+                  ),
                 ),
                 color: Colors.white,
+
                 child: const Padding(
                   padding: EdgeInsets.all(20.0),
+
                   child: Column(
                     children: [
+
                       _InfoRow(
                         icon: Icons.business_rounded,
                         label: 'Jurusan',
                         value: 'Bisnis dan Informatika',
                       ),
-                      Divider(height: 24, color: Color(0xFFF1F5F9)),
+
+                      Divider(
+                        height: 24,
+                        color: Color(0xFFF1F5F9),
+                      ),
+
                       _InfoRow(
                         icon: Icons.code_rounded,
                         label: 'Program Studi',
                         value: 'Sarjana Terapan TRPL',
                       ),
-                      Divider(height: 24, color: Color(0xFFF1F5F9)),
+
+                      Divider(
+                        height: 24,
+                        color: Color(0xFFF1F5F9),
+                      ),
+
                       _InfoRow(
                         icon: Icons.location_on_rounded,
                         label: 'Kampus',
                         value: 'Politeknik Negeri Banyuwangi',
                       ),
-                      Divider(height: 24, color: Color(0xFFF1F5F9)),
+
+                      Divider(
+                        height: 24,
+                        color: Color(0xFFF1F5F9),
+                      ),
+
                       _InfoRow(
                         icon: Icons.calendar_today_rounded,
                         label: 'Semester / TA',
                         value: 'Semester 3 (2026/2027)',
                       ),
+
+                      Divider(
+                        height: 24,
+                        color: Color(0xFFF1F5F9),
+                      ),
+
+                      // Informasi tambahan 1
+                      _InfoRow(
+                        icon: Icons.link_rounded,
+                        label: 'Repositori GitHub',
+                        value: 'github.com/threesix346/profile-mahasiswa',
+                      ),
+
+                      Divider(
+                        height: 24,
+                        color: Color(0xFFF1F5F9),
+                      ),
+
+                      // Informasi tambahan 2
+                      _InfoRow(
+                        icon: Icons.devices_rounded,
+                        label: 'Fokus Keahlian',
+                        value: 'Mobile UI/UX & Flutter Development',
+                      ),
                     ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              // Tombol Verifikasi Status Mahasiswa
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'Status: Mahasiswa Aktif TRPL',
+                        ),
+                        behavior: SnackBarBehavior.floating,
+                        duration: Duration(seconds: 3),
+                      ),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.verified_user_rounded,
+                  ),
+                  label: const Text(
+                    'Verifikasi Status Mahasiswa',
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF0284C7),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 14,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
               ),
@@ -167,9 +252,15 @@ class _InfoRow extends StatelessWidget {
             color: const Color(0xFFF0F9FF),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(icon, size: 20, color: const Color(0xFF0284C7)),
+          child: Icon(
+            icon,
+            size: 20,
+            color: const Color(0xFF0284C7),
+          ),
         ),
+
         const SizedBox(width: 14),
+
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,7 +273,9 @@ class _InfoRow extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
+
               const SizedBox(height: 2),
+
               Text(
                 value,
                 style: const TextStyle(
