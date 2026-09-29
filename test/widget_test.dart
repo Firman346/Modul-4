@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../lib/modul2/academic_dashboard_screen.dart';
+import 'package:flutter_application_1/modul2/academic_dashboard_screen.dart';
 
 void main() {
   testWidgets(
